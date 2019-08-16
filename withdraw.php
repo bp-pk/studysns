@@ -36,7 +36,7 @@ if(!empty($_POST)) {
         if($stmt1) {
             // セッション削除
             session_destroy();
-            debug('ッション変数の中身：'.print_r($_SESSION,true));
+            debug('セッション変数の中身：'.print_r($_SESSION,true));
             debug('トップページへ遷移します。');
             header('Loction:index.php');
         } else {

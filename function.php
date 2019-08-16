@@ -173,22 +173,22 @@ function getErrMsg($key){
 function isLogin(){
   // ログインしている場合
   if( !empty($_SESSION['login_date']) ){
-    debug('ログイン済みユーザーです。');
+    debug('ログイン済みユーザーです');
 
     // 現在日時が最終ログイン日時＋有効期限を超えていた場合
     if( ($_SESSION['login_date'] + $_SESSION['login_limit']) < time()){
-      debug('ログイン有効期限オーバーです。');
+      debug('ログイン有効期限オーバーです');
 
       // セッションを削除（ログアウトする）
       session_destroy();
       return false;
     }else{
-      debug('ログイン有効期限以内です。');
+      debug('ログイン有効期限以内です');
       return true;
     }
 
   }else{
-    debug('未ログインユーザーです。');
+    debug('未ログインユーザーです');
     return false;
   }
 }
@@ -223,11 +223,11 @@ function queryPost($dbh, $sql, $data){
         $err_msg['common'] = MSG07;
         return 0;
     }
-    debug('クエリ成功。');
+    debug('クエリ成功');
     return $stmt;
 }
 function getUser($u_id){
-    debug('ユーザー情報を取得します。');
+    debug('ユーザー情報を取得します');
     // 例外処理
     try {
         // DBへ接続
@@ -250,7 +250,7 @@ function getUser($u_id){
     }
 }
 function getAllRecords($u_id){
-  debug('全ての投稿を取得します?');
+  debug('全ての投稿を取得します');
   debug('ユーザーID：'.$u_id);
   //例外処理
   try {
@@ -274,7 +274,7 @@ function getAllRecords($u_id){
   }
 }
 function getMyRecords($u_id){
-  debug('自分の投稿を取得します!');
+  debug('自分の投稿を取得します');
   debug('ユーザーID：'.$u_id);
   //例外処理
   try {
@@ -294,7 +294,7 @@ function getMyRecords($u_id){
     }
 }
 function isLike($u_id, $r_id){
-  debug('お気に入り情報があるか確認します。');
+  debug('お気に入り情報があるか確認します');
   debug('ユーザーID：'.$u_id);
   debug('商品ID：'.$r_id);
   //例外処理
@@ -337,7 +337,7 @@ function getGood($r_id){
     }
 }
 function getPost($u_id, $r_id){
-    debug('投稿情報を取得します。');
+    debug('投稿情報を取得します');
     debug('ユーザーID：'.$u_id);
     debug('商品ID：'.$r_id);
 
@@ -375,7 +375,7 @@ function getPostData($r_id){
     }
 }
 function getPostList(){
-    debug('全ての投稿情報を取得します。');
+    debug('全ての投稿情報を取得します');
     try{
         $dbh = dbConnect();
         $sql = 'SELECT * FROM records WHERE delete_flg = 0 ORDER BY created_date DESC';
@@ -393,7 +393,7 @@ function getPostList(){
     }
 }
 function getUserPostList($u_id){
-    debug('自分の投稿情報を取得します。');
+    debug('自分の投稿情報を取得します');
     try {
         $dbh = dbConnect();
         $sql = 'SELECT * FROM records WHERE user_id = :u_id AND delete_flg = 0';
@@ -492,9 +492,9 @@ function sendMail($from, $to, $subject, $comment){
         $result = mb_send_mail($to, $subject,$comment, "From:".$from);
         // 送信結果を判定
         if($result){
-            debug('メールを送信しました。');
+            debug('メールを送信しました');
         }else{
-            debug('【エラー発生】メールの送信に失敗しました。');
+            debug('【エラー発生】メールの送信に失敗しました');
         }
     }
 }
@@ -593,7 +593,7 @@ function uploadImg($file, $key){
     }
 }
 function getCategory(){
-    debug('カテゴリー情報を取得します。');
+    debug('カテゴリー情報を取得します');
     //例外処理
     try {
         // DBへ接続

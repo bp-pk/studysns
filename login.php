@@ -62,7 +62,7 @@ if(!empty($_POST)){
                 // ログイン有効期限（デフォルトを１時間とする）
                 $sesLimit = 60 * 60;
                 // 最終ログイン日時を現在日時に
-                $_SESSION['login_date'] = time(); //time関数は1970年1月1日 00:00:00 を0として、1秒経過するごとに１ずつ増加させた値が入る
+                $_SESSION['login_date'] = time(); 
 
                 // ログイン保持にチェックがある場合
                 if($pass_save){
