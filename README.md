@@ -6,7 +6,7 @@ STUDY!は、勉強用掲示板WEBアプリです。
 ## 使用言語・データベース  
 ・HTML  
 ・CSS  
-・jQuery  
+・JavaScript(jQuery・Ajax)  
 ・PHP  
 ・MySQL  
 
