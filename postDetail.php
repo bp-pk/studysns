@@ -1,5 +1,4 @@
 <?php
-
 //共通変数・関数ファイルを読込み
 require('function.php');
 debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
@@ -58,8 +57,7 @@ require('head.php');
     <!-- ヘッダー -->
     <?php require('header.php'); ?>
     <!-- メインコンテンツ -->
-    <main id="contents">
-       <div class="site-width">
+       <div id="contents" class="site-width">
 
        <!-- 投稿詳細 -->
         <section class="post recording-main" data-postid="<?php echo sanitize($r_id); ?>">
@@ -143,7 +141,6 @@ require('head.php');
             endforeach;
         ?>
         </div>
-    </main>
 
 
 <!-- フッター -->

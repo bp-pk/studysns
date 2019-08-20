@@ -2,6 +2,7 @@
 
 // 共通変数・関数ファイルを読込み
 require('function.php');
+
 debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
 debug(' パスワード変更ページ ');
 debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
@@ -114,8 +115,6 @@ require('header.php');
 
 <div id="contents" class="site-width">
 
-
-    <h1 class="page-title">パスワード変更</h1>
     <section class="mydata">
       <?php
       require('menu.php');
@@ -124,6 +123,7 @@ require('header.php');
     <section id="main">
     <div class="form-container2">
         <form class="form" method="post" action="">
+          <h1 class="page-title">パスワード変更</h1>
            <div class="area-msg">
                <?php
                echo getErrMsg('common');

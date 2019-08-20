@@ -1,5 +1,4 @@
 <?php
-
 //共通変数・関数ファイルを読込み
 require('function.php');
 debug('「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「「');
@@ -32,7 +31,7 @@ require('head.php');
 ?>
 
 
-<body class="page-2colum">
+<body class="page-2colum userpage">
 
     <!-- ヘッダー -->
     <?php require('header.php'); ?>
@@ -44,7 +43,7 @@ require('head.php');
             <div class="prof-icon-wrap">
                 <img class="prof-icon" src="<?php echo showImg(sanitize($dbPostUserInfo['pic'])); ?>">
             </div>
-            <div class="sp-username"><?php sanitize($dbPostUserInfo['username']); ?></div>
+            <div class="sp-username"><?php echo sanitize($dbPostUserInfo['username']); ?></div>
 
             <!-- メッセージがある場合のみ表示 -->
             <?php if(!empty($dbPostUserInfo['msg'])) { ?>
@@ -81,7 +80,6 @@ require('head.php');
                 ?>
                 
             </section>
-        
     </div>
 
 <!-- フッター -->

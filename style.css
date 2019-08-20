@@ -2,11 +2,9 @@
     margin: 0;
     padding: 0;
 }
-
 body {
     margin: 0;
     padding: 0;
-    overflow-x:hidden;
     line-height: 150%;
     color: #444;
 }
@@ -15,18 +13,20 @@ h1,h2,h3,h4,h5,h6,p {
     margin: 0;
     padding: 0;
 }
-/*====================
+/*===========================
   ヘッダー
-====================*/
+===========================*/
 header {
-    margin-bottom: 0;
     width: 100%;
     height: 80px;
     background: #222222;
 }
+header .site-width {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 header h1 {
-    float: left;
-    margin: 0;
     padding-left: 20px;
     text-align: center;
     font-size: 60px;
@@ -34,20 +34,30 @@ header h1 {
     line-height: 80px;
 }
 header h1 a {
-    color: #CC6633;
+    color: #cc6633;
     letter-spacing: 0.08em;
     text-decoration: none;
 }
-/*====================
+@media screen and (max-width: 414px) {
+    header h1 {
+        padding-left: 0;
+        font-size: 50px;
+    }
+}
+/*===========================
   ナビゲーション
-====================*/
+===========================*/
 #top-nav {
-    position: relative;
-    float: right;
-    width: 500px;
     height: 90px;
 }
-
+@media screen and (max-width: 414px) {
+    #top-nav {
+        display: none;
+    }
+}
+nav ul {
+    display: flex;
+}
 nav a {
     padding: 10px 15px;
     color: #fff;
@@ -55,29 +65,113 @@ nav a {
     font-weight: bold;
     font-size: 14px;
 }
-
+@media screen and (max-width: 414px) {
+    nav ul {
+        display: block;
+        list-style: none;
+    }
+    nav a {
+        color: #111;
+    }
+}
 nav a:hover {
     text-decoration: underline;
 }
-
 #top-nav ul {
     position: relative;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    width: 450px;
     height: 80px;
     list-style: none;
     line-height: 80px;
 }
-
-#top-nav ul li {
-    float: right;
+#top-nav-min {
+    display: none;
 }
-/*====================
+@media screen and (max-width: 414px) {
+  #top-nav-min {
+      position: absolute;
+      top: 0;
+      right: -100%;
+      background: rgba(255, 255, 255, 0.85);
+      width: 100%;
+      height: 100vh;
+      padding-top: 50px;
+      transition: .5s;
+    }
+    #top-nav-min.active {
+      display: block;
+      transition: .5s;
+      transform: translateX(-100%);
+      z-index: 2;
+    } 
+}
+
+.menu {
+  display: block;
+  align-items: center;
+  font-size: 30px;
+  font-family: "Amatic SC", cursive;
+}
+.menu-item {
+    margin-right: 20px; 
+}
+.menu-link {
+    -webkit-font-smoothing: initial;
+    display: block;
+    padding: 15px;
+    text-align: center;
+}
+@media screen and (max-width: 414px) {
+    .menu-item {
+    margin-right: initial; 
+    }
+}
+.menu-trigger {
+    display: none;
+    transition: all .4s;
+    box-sizing: border-box;
+    position: relative;
+    width: 40px;
+    height: 32px;
+    z-index: 3;
+}
+@media screen and (max-width: 414px) {
+    .menu-trigger {
+        display: inline-block; 
+    }
+}
+.menu-trigger span {
+    display: inline-block;
+    transition: all .4s;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+    top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+    top: 14px;
+}
+.menu-trigger span:nth-of-type(3) {
+    bottom: 0;
+}
+.menu-trigger.active span:nth-of-type(1) {
+    transform: translateY(12px) rotate(-45deg);
+}
+.menu-trigger.active span:nth-of-type(2) {
+    opacity: 0;
+}
+.menu-trigger.active span:nth-of-type(3) {
+    transform: translateY(-15px) rotate(45deg);
+}
+
+/*===========================
   トップ画像
-====================*/
+===========================*/
 .index {
     width: 100%;
     margin: 0 auto;
@@ -89,6 +183,11 @@ nav a:hover {
     background-attachment: fixed;
     height: 800px;
 }
+@media screen and (max-width: 414px) {
+    .indexMain {
+        height: auto;
+    }
+}
 .main-box {
     width: 100%;
     max-width: 80%;
@@ -99,8 +198,15 @@ nav a:hover {
 .main-box h2 {
     font-size: 35px;
     margin-bottom: 20px;
-    color: white;
+    color: #fff;
     font-family: 'Staatliches', cursive;
+}
+@media screen and (max-width: 414px) {
+    .main-box {
+        padding: auto;
+        padding-top: 50%;
+        line-height: 1.2;
+    }
 }
 .btn-index {
     display: block;
@@ -111,7 +217,7 @@ nav a:hover {
     max-width: 100%;
     text-decoration: none;
     background: #000;
-    color: #FFF;
+    color: #fff;
     border: none;
     font-size: 0.9em;
     text-align: center;
@@ -125,13 +231,15 @@ nav a:hover {
     transition: all 1s;
     transform: translateY(-10px);
 }
-/*====================
-  フッター
-====================*/
-#footer {
-    margin: -10px;
-    position: inherit;
+@media screen and (max-width: 414px) {
+    #indexpage footer {
+        margin-top: -20px;
+    }
 }
+
+/*===========================
+  フッター
+===========================*/
 #footer a {
     color: #f6f5f5;
 }
@@ -142,36 +250,44 @@ nav a:hover {
     text-align: center;
     font-size: 12px;
     width: 100%;
+    box-sizing: border-box;
 }
-/*========================================
+/*===========================
   レイアウト
-========================================*/
-
+===========================*/
 .site-width {
     margin: 0 auto;
     width: 980px;
 }
-
+@media screen and (max-width: 414px) {
+    .site-width {
+        width: auto;
+    }
+}
+.page-2colum .site-width, .page-2colum .site-width.header{
+    display: flex;
+}
 #main {
-    float: left;
     min-height: 600px;
 }
-
 .page-1colum #main {
-    width:100%;
+    width: 100%;
 }
 .page-2colum #main {
-    float: left;
     width: 70%;
     margin-bottom: 30px;
 }
-
+@media screen and (max-width: 414px) {
+    .page-2colum #main {
+        width: 100%;
+    }
+}
 section h1.title {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
 #contents {
-    overflow: hidden;
+    /*overflow: hidden; */
     margin: 20px auto;
     min-height: 650px;
 }
@@ -190,22 +306,24 @@ section h1.title {
   プロフィール
 =======================================*/
 .mydata {
-    float: left;
     width: 30%;
 }
+@media screen and (max-width: 414px) {
+    .mydata {
+        display: none;
+    }
+}
 .mypanel {
-    overflow: hidden;
+    display: flex;
     padding: 10px;
 }
 .mypanel img {
-    float: left;
     width: 50px;
     height: 50px;
     border-radius: 100px;
     margin-right: 20px;
 }
 .mypanel h2 {
-    float: left;
     margin-top: 15px;
 }
 .myname-list {
@@ -238,7 +356,7 @@ section h1.title {
     text-decoration: underline;
 }
 /*=======================================
-  投稿一覧
+  投稿
 =======================================*/
 .recording {
     background: #f6f5f5;
@@ -247,6 +365,11 @@ section h1.title {
     padding: 20px;
     min-height: 30px;
     overflow: hidden;
+}
+@media screen and (max-width: 414px) {
+    .recording {
+        margin-left: auto;
+    }
 }
 .record-content h2 {
     margin-top: 10px;
@@ -277,6 +400,11 @@ section h1.title {
     margin: auto;
     padding: 20px;
     margin-top: 10px;
+}
+@media screen and (max-width: 414px) {
+    .recording-main, .recording-comment {
+        width: auto;
+    }
 }
 .post-wrap {
     margin-left: 70px;
@@ -318,6 +446,13 @@ section h1.title {
 /*===========================
   ユーザーページ
 ===========================*/
+.sp-username {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: 600;
+    padding: 15px;
+}
 .post-info {
     margin: 10px auto;
     display: flex;
@@ -331,6 +466,26 @@ section h1.title {
 }
 .post-info a:hover {
     text-decoration: underline;
+}
+@media screen and (max-width: 414px) {
+    .userpage .mydata {
+        display: block;
+    }
+    .myname-list, .side-menu {
+        display: none;
+    }
+    .mydata {
+        width: auto;
+    }
+    .userpage .prof-icon-wrap {
+        display: flex;
+        justify-content: center;
+    }
+}
+@media screen and (max-width: 414px) {
+    .page-2colum .site-width {
+        display: block;
+    }
 }
 /*========================================
   ボタン
@@ -417,9 +572,14 @@ input[type="submit"]:hover {
 .form-container2 .form {
     width: 500px;
 }
+@media screen and (max-width: 414px) {
+    .form {
+        width: auto;
+    }
+}
 .form .title {
-  margin-bottom: 40px;
-  text-align: center;
+    margin-bottom: 40px;
+    text-align: center;
 }
 .form p {
     margin-bottom: 10px;

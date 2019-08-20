@@ -13,6 +13,7 @@
 
 <script>
     $(function(){
+
         // footer固定
         var $ftr = $('#footer');
         if( window.innerHeight > $ftr.offset().top + $ftr.outerHeight() ){
@@ -98,6 +99,18 @@
         } else {
             window.location.href = 'home.php';
         }
+
+        // SPメニュー
+        $('.js-toggle-sp-menu').on('click', function(){
+            $(this).toggleClass('active');
+            $('.js-toggle-sp-menu-target').toggleClass('active');
+        });
+
+        // SPメニュー クリック時
+        $('.menu-link').on('click', function(){
+            $('.js-toggle-sp-menu').toggleClass('active');
+            $('.js-toggle-sp-menu-target').toggleClass('active');
+        });
     });
 </script>
 </body>

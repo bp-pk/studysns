@@ -5,6 +5,7 @@ require('function.php');
 
 // post送信されていた場合
 if(!empty($_POST)){
+    
     // 変数にユーザー情報を代入
     $username = $_POST['username'];
     $email = $_POST['email'];
