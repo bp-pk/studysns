@@ -9,7 +9,7 @@ require('head.php');
 <!-- メイン -->
 <section class="indexMain index">
     <div class="main-box">
-          <h2>一緒に勉強<br>しませんか？</h2>
+          <h2 class="top-title">一緒に勉強<br>しませんか？</h2>
           <a href="signup.php" class="btn-index">ユーザー登録</a>
     </div>
 </section>

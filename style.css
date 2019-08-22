@@ -236,7 +236,14 @@ nav a:hover {
         margin-top: -20px;
     }
 }
-
+.top-title br {
+    display: none;
+}
+@media screen and (max-width: 414px) {
+    .top-title br {
+        display: block;
+    }
+}
 /*===========================
   フッター
 ===========================*/
