@@ -583,6 +583,9 @@ input[type="submit"]:hover {
     .form {
         width: auto;
     }
+    .form-container2 .form {
+        width: auto;
+    }
 }
 .form .title {
     margin-bottom: 40px;
