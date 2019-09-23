@@ -149,6 +149,14 @@ require('header.php');
             </form>
         </div>
     </section>
+    
+    <section id="sub">
+        <div class="sub-msg">
+            <h2>お試しログインできます</h2>
+            <p>Email: test@test.com</p>
+            <p>パスワード: password</p>
+        </div>
+    </section>
 </div>
 
 <?php
